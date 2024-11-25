@@ -34,6 +34,20 @@ genererBtn.addEventListener("click", () => {
     // Paramètrer la carte avec les valeurs du formulaire
     const carteBoostrap = document.querySelector("#carte > .card") // ">" veut dire un enfant de
     carteBoostrap.style.backgroundColor = couleur // On applique la couleur
+
+    // Définir une fonction permettant de déterminer si la couleur de fond est claire ou pas
+    // On ademt la fonction suivante
+    const estFondClair = couleur => {
+        const hex = couleur.replace('#', '');
+        const r = parseInt(hex.substr(0,2),16);
+        const g = parseInt(hex.substr(2,2),16);
+        const b = parseInt(hex.substr(4,2),16);
+        return ((r * 299) + (g * 589) + (b * 114)) / 1000 > 120;
+    }
+    // Appel à la fonction
+    carteBoostrap.style.color = estFondClair(couleur) ? '#000' : "#fff"
+
+    // Affiche le text rentrer dans le formulaire
     carte.querySelector("#carte-prenom").textContent =
         `Joyeux anniversaire, ${prenom}`
     carte.querySelector("#carte-message").textContent =
