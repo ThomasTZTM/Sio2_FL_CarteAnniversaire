@@ -7,6 +7,9 @@ const formulaire = document.querySelector("#formulaire")
 // Récupérer le bouton qui génère la carte
 const genererBtn = document.querySelector("#generer-btn")
 
+// Récupérer la carte
+const carte = document.querySelector("#carte")
+
 // Détecter le click sur le bouton
 // Associer au bouton un "eventListener" : écouteur d'évènement
 genererBtn.addEventListener("click", () => {
@@ -19,6 +22,15 @@ genererBtn.addEventListener("click", () => {
     if (!formulaire.checkValidity()){
         // Ajouter dynamiquement la classe "was-validated" de bootstrap
         formulaire.classList.add("was-validated") // Si formulaire pas valide alors on met les cases en vert ou en rouge
-        return
+        return // Pas besoin d'aller plus loin grace à la fonction au dessus
     }
+
+    // Générer la carte
+    // Rendre visible la carte
+    carte.style.display = "block" // Permet d'afficher la carte
+
+    // Paramètrer la carte avec les valeurs du formulaire
+    const carteBoostrap = document.querySelector("#carte > .card") // ">" veut dire un enfant de
+    carteBoostrap.style.backgroundColor = couleur
+
 })
