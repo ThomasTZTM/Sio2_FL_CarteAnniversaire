@@ -31,6 +31,17 @@ genererBtn.addEventListener("click", () => {
 
     // Paramètrer la carte avec les valeurs du formulaire
     const carteBoostrap = document.querySelector("#carte > .card") // ">" veut dire un enfant de
-    carteBoostrap.style.backgroundColor = couleur
+    carteBoostrap.style.backgroundColor = couleur // On applique la couleur
+    carte.querySelector("#carte-prenom").textContent =
+        `Joyeux anniversaire, ${prenom}`
+    carte.querySelector("#carte-message").textContent =
+        message || "Profite bien de ta journée !"
+})
 
+// Ajouter un écouteur sur le click du bouton "réinitialiser"
+const resetBtn = document.querySelector("#reset-btn")
+resetBtn.addEventListener("click", () => {
+    carte.style.display = 'none'
+    formulaire.reset()
+    formulaire.classList.remove("was-validated")
 })
