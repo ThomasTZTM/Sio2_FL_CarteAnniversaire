@@ -28,6 +28,8 @@ genererBtn.addEventListener("click", () => {
     // Générer la carte
     // Rendre visible la carte
     carte.style.display = "block" // Permet d'afficher la carte
+    // Appliquer l'animation zoomIn
+    carte.classList.add("anime-carte")
 
     // Paramètrer la carte avec les valeurs du formulaire
     const carteBoostrap = document.querySelector("#carte > .card") // ">" veut dire un enfant de
@@ -44,4 +46,5 @@ resetBtn.addEventListener("click", () => {
     carte.style.display = 'none'
     formulaire.reset()
     formulaire.classList.remove("was-validated")
+    carte.classList.remove("anime-carte")
 })

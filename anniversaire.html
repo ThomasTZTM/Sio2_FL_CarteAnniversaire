@@ -7,6 +7,13 @@
         .carte {
             display: none;
         }
+        @keyframes zoomIn {
+            from { transform: scale(0.5); opacity: 0}
+            to { transform: scale(1); opacity: 1}
+        }
+        .anime-carte {
+            animation: zoomIn 3s ease;
+        }
     </style>
     <title>Génère ta carte d'anniversaire</title>
 </head>
